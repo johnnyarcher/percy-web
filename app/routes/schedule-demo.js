@@ -1,12 +1,6 @@
-import MarketingPageBaseRoute from 'percy-web/routes/marketing-page-base';
+import Route from '@ember/routing/route';
 
-export default MarketingPageBaseRoute.extend({
-  beforeModel() {
-    if (!this.get('launchDarkly').variation('updated-marketing-site')) {
-      this.transitionTo('/');
-    }
-  },
-
+export default Route.extend({
   model() {
     return this.get('store').queryRecord('marketing-page', {
       'fields.pageName': 'ScheduleDemo',
